@@ -1,0 +1,133 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>University Student Portal</title>
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-size: cover;
+  background-position: center;
+}
+.page {
+  display: none;
+  height: 100vh;
+  color: white;
+  text-align: center;
+}
+.active { display: block; }
+.container {
+  background: rgba(0,0,0,0.6);
+  padding: 20px;
+  margin: auto;
+  margin-top: 100px;
+  width: 300px;
+  border-radius: 10px;
+}
+input, button {
+  width: 90%;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  border: none;
+}
+button {
+  background: #007bff;
+  color: white;
+  cursor: pointer;
+}
+.profile-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-top: 20px;
+}
+.menu {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  cursor: pointer;
+  font-size: 24px;
+}
+.menu-items {
+  display: none;
+  position: absolute;
+  top: 50px;
+  left: 10px;
+  background: rgba(0,0,0,0.7);
+  padding: 10px;
+  border-radius: 5px;
+}
+.menu-items div {
+  margin: 10px 0;
+  cursor: pointer;
+}
+</style>
+</head>
+<body><!-- Login Page --><div id="login" class="page active" style="background-image:url('https://cdn.phototourl.com/free/2026-04-13-013c0f29-2142-4d02-a4e4-3d072c629b5e.jpg');">
+  <div class="container">
+    <h2>Login</h2>
+    <input type="text" placeholder="User ID">
+    <input type="password" placeholder="Password">
+    <button onclick="showPage('register')">Login</button>
+  </div>
+</div><!-- Register Page --><div id="register" class="page" style="background-image:url('https://cdn.phototourl.com/free/2026-04-13-8d9fd13a-201a-42b7-b34d-3dda56707ca5.jpg');">
+  <div class="container">
+    <h2>Register</h2>
+    <input type="text" placeholder="Mobile Number">
+    <button onclick="showPage('otp')">Next</button>
+  </div>
+</div><!-- OTP Page --><div id="otp" class="page" style="background-image:url('https://images.unsplash.com/photo-1508780709619-79562169bc64');">
+  <div class="container">
+    <h2>Enter OTP</h2>
+    <input type="text" placeholder="OTP">
+    <button onclick="showPage('profile')">Verify</button>
+  </div>
+</div><!-- Profile Page --><div id="profile" class="page" style="background-image:url('https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d');">
+  <div class="menu" onclick="toggleMenu()">☰</div>
+  <div class="menu-items" id="menuItems">
+    <div onclick="showPage('attendance')">Attendance</div>
+    <div onclick="showPage('assignments')">Assignments</div>
+    <div onclick="showPage('timetable')">Time Table</div>
+  </div>  <img src="https://cdn.phototourl.com/free/2026-04-13-c131a28d-df52-420a-9745-a56d6d5d06cb.jpg" class="profile-img">
+  <h2>Student Profile</h2>
+  <p>Name: K.PRAVEEN</p>
+  <p>Branch: B-Tech</p>
+  <p>Academic Year: 1st Year</p>
+  <p>Contact: 9876543210</p>
+  <p>Address: kadapa, Andhra Pradesh</p>
+  <p>Specialization:CSE(AIML)</p>
+</div><!-- Attendance Page --><div id="attendance" class="page" style="background-image:url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570');">
+  <h2>Attendance</h2>
+  <p>Maths: 40/50 (80%)</p>
+  <p>Physics: 35/50 (70%)</p>
+  <p>Chemistry: 45/50 (90%)</p>
+  <button onclick="showPage('profile')">Back</button>
+</div><!-- Assignments Page --><div id="assignments" class="page" style="background-image:url('https://images.unsplash.com/photo-1517430816045-df4b7de11d1d');">
+  <h2>Assignments</h2>
+  <p>Maths: Assignment 1</p>
+  <p>Physics: Lab Report</p>
+  <p>Chemistry: Project Work</p>
+  <button onclick="showPage('profile')">Back</button>
+</div><!-- Timetable Page --><div id="timetable" class="page" style="background-image:url('https://images.unsplash.com/photo-1506784983877-45594efa4cbe');">
+  <h2>Time Table</h2>
+  <p>Mon: Math, Chemistry</p>
+  <p>Tue: Physics, Lab</p>
+  <p>Wed: Chemistry, Math</p>
+  <button onclick="showPage('profile')">Back</button>
+</div><script>
+function showPage(pageId) {
+  let pages = document.getElementsByClassName('page');
+  for (let i = 0; i < pages.length; i++) {
+    pages[i].classList.remove('active');
+  }
+  document.getElementById(pageId).classList.add('active');
+}
+
+function toggleMenu() {
+  let menu = document.getElementById('menuItems');
+  menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+}
+</script></body>
+</html>
